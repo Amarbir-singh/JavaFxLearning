@@ -4,9 +4,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.text.Text;
 
 
 
@@ -17,7 +19,16 @@ public class Main extends Application
 
 	@Override
 	public void start(Stage primaryStage) 
-	{
+	{ 
+		//creating a text object
+		Text text = new Text();
+		//setting the text to be added
+		text.setText("Hello, composition");
+		//setting the position of the text
+		text.setX(120);
+		text.setY(80);
+		//creating a group object
+		
         //Creating a path
 		Path path = new Path();
 		//Moving to the starting point
@@ -33,18 +44,18 @@ public class Main extends Application
 		//Adding all the elements to the path
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line1,line2,line3,line4);
+		StackPane stack = new StackPane();
 		
-		//creating a Group object
-		Group root = new Group(path);
 		
+		stack.getChildren().addAll(text,path);
 		//Creating a scene object
-		Scene scene = new Scene(root,600,300);
+		
 		
 		//Setting title to the stage
 		primaryStage.setTitle("Drawing");
 		
 		//Adding scene to the stage
-		primaryStage.setScene(scene);
+		primaryStage.setScene(new Scene(stack));
 		//Displaying the contents of the stage
 		primaryStage.show();
            
