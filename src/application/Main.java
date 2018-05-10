@@ -20,10 +20,11 @@ public class Main extends Application
 	@Override
 	public void start(Stage primaryStage) 
 	{ 
+		
 		//creating a text object
 		Text text = new Text();
 		//setting the text to be added
-		text.setText("Hello, composition");
+		text.setText("Hello");
 		//setting the position of the text
 		text.setX(120);
 		text.setY(80);
@@ -45,7 +46,7 @@ public class Main extends Application
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line1,line2,line3,line4);
 		StackPane stack = new StackPane();
-		
+         		
 		
 		stack.getChildren().addAll(text,path);
 		//Creating a scene object
@@ -53,9 +54,11 @@ public class Main extends Application
 		
 		//Setting title to the stage
 		primaryStage.setTitle("Drawing");
-		
+		Scene scene =new Scene(stack);
+		//Adding css file
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		//Adding scene to the stage
-		primaryStage.setScene(new Scene(stack));
+		primaryStage.setScene(scene);
 		//Displaying the contents of the stage
 		primaryStage.show();
            
